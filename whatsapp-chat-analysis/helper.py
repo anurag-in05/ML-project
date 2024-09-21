@@ -31,7 +31,7 @@ def most_busy_users(df):
     return x,df
 
 def create_wordcloud(selected_user,df):
-    f = open('whatsapp-chat-analysis/stop_hinglish.txt', 'r')
+    f = open('whatsapp-chat-analysis\stop_hinglish.txt', 'r')
     stop_words = f.read()
     if selected_user != 'Overall':
         df = df[df['user'] == selected_user]
@@ -50,7 +50,7 @@ def create_wordcloud(selected_user,df):
     return df_wc
 
 def most_common_words(selected_user,df):
-    f = open('whatsapp-chat-analysis/stop_hinglish.txt','r')
+    f = open('whatsapp-chat-analysis\stop_hinglish.txt','r')
     stop_words = f.read()
     if selected_user != 'Overall':
         df = df[df['user'] == selected_user]
