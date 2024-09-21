@@ -6,6 +6,7 @@ import emoji
 
 extract = URLExtract()
 
+#used for analysis
 def fetch_stats(selected_user,df):
 
     if selected_user != 'Overall':

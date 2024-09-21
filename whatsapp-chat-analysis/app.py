@@ -5,6 +5,8 @@ import seaborn as sns
 
 st.sidebar.title("Whatsapp Chat Analyzer")
 
+#streamlit runner code 
+
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
@@ -128,7 +130,5 @@ if uploaded_file is not None:
             fig,ax = plt.subplots()
             ax.pie(emoji_df[1].head(),labels=emoji_df[0].head(),autopct="%0.2f")
             st.pyplot(fig)
-
-
 
 
