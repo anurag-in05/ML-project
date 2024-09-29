@@ -10,8 +10,8 @@ st.sidebar.title("Whatsapp Chat Analyzer")
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
-    data = bytes_data.decode("utf-8")
-    first_line = uploaded_file.readline().decode('utf-8').strip()
+    data = bytes_data.decode("utf-8", errors = 'ignore')
+    first_line = uploaded_file.readline().decode('utf-8', errors = 'ignore').strip()
     if first_line[0] == "[":
         df = preprocessor.preprocess_ios(data)
     else:
