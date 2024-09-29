@@ -9,18 +9,18 @@ st.sidebar.title("Whatsapp Chat Analyzer")
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
-    data = bytes_data.decode("utf-8")
-    first_line = uploaded_file.readline().decode('utf-8').strip()
-    if first_line[0] == "[":
+    data = bytes_data.decode("utf-8", errors = 'ignore')
+    
+    first_line = uploaded_file.readline().decode('utf-8', errors = 'ignore').strip()
+    t = ['am', 'AM', 'pm', 'PM']
+
+    # Use any() to check if any element from the list `t` is in `first_line`
+    if any(substring in first_line for substring in t):
+        df = preprocessor.preprocess_mi(data)
+    elif first_line.startswith("["):  # Check if the first character is "["
         df = preprocessor.preprocess_ios(data)
     else:
         df = preprocessor.preprocess(data)
-
-
-
-
- 
-    
 
     # fetch unique users
     user_list = df['user'].unique().tolist()
