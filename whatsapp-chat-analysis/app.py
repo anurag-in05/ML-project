@@ -14,7 +14,7 @@ if uploaded_file is not None:
     first_line = uploaded_file.readline().decode('utf-8', errors = 'ignore').strip()
     t = ['am', 'AM', 'pm', 'PM']
 
-    # Use any() to check if any element from the list `t` is in `first_line`
+    # Use any() to check if any element from the list t is in first_line
     if any(substring in first_line for substring in t):
         df = preprocessor.preprocess_mi(data)
     elif first_line.startswith("["):  # Check if the first character is "["
@@ -138,5 +138,3 @@ if uploaded_file is not None:
             fig,ax = plt.subplots()
             ax.pie(emoji_df[1].head(),labels=emoji_df[0].head(),autopct="%0.2f")
             st.pyplot(fig)
-
-
