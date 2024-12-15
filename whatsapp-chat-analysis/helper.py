@@ -4,7 +4,7 @@ import pandas as pd
 from collections import Counter
 import emoji
 extract = URLExtract()
-f = open('whatsapp-chat-analysis/stop_hinglish.txt','r')
+f = open('whatsapp-chat-analysis/hinglish.txt','r')
 #used for analysis
 def fetch_stats(selected_user,df):
     if selected_user != 'Overall':
